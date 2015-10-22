@@ -6,15 +6,11 @@
         <td>Nome</td>
         <td>Montante</td>
       </tr>
-      <tr>
-        <td><input ng-model="search.name"></td>
-        <td><input ng-model="search.amount"></td>
-      </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="customer in customers|orderBy:'name':true|filter:search">
+      <tr ng-repeat="customer in customers">
         <td>{{customer.name}}</td>
-        <td>{{customer.amount|number:2}}€</td>
+        <td>{{customer.amount}}</td>
       </tr>
     </tbody>
   </table>
