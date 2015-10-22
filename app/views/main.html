@@ -6,14 +6,15 @@
         <td>Nome</td>
         <td>Montante</td>
       </tr>
-      <tr>
-        <td><input ng-model="search.name"></td>
-        <td><input ng-model="search.amount"></td>
-      </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="customer in customers|orderBy:'name':true|filter:search">
-        <td>{{customer.name}}</td>
+      <tr ng-click="edit($index)"
+        ng-repeat="customer in customers">
+        <td>
+          <span ng-hide="editable($index)">{{customer.name}}</span>
+          <input ng-show="editable($index)" 
+            ng-model="customer.name" class="form-control">
+        </td>
         <td>{{customer.amount|number:2}}€</td>
       </tr>
     </tbody>
